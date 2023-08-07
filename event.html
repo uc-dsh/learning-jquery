@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/js/jquery.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h4 {
+            margin-bottom: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            min-width: 200px;
+            max-width: 100vw;
+            border: 4px solid #00000018;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .bg-success {
+            background: rgba(0, 128, 0, 0.353);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box click">Click</div>
+        <div class="box hover">Hover</div>
+        <div class="box dblClick">DblClick</div>
+        <div class="box mouseUp">MouseUp</div>
+        <div class="box mouseDown">MouseDown</div>
+        <div class="box multiple">Multiple Event Handler</div>
+    </div>
+
+    <script>
+        
+        $(".click").click(function () {
+            $(this).toggleClass("bg-success");
+        });
+        $(".click").click();
+
+        $(".hover").hover(function () {
+            $(this).addClass("bg-success");
+        }, function () {
+            $(this).removeClass("bg-success");
+        });
+
+        $(".dblClick").dblclick(function () {
+            $(this).toggleClass("bg-success");
+        });
+
+        $(".mouseUp").mouseup(function () {
+            $(this).toggleClass("bg-success");
+        });
+
+        $(".mouseDown").mousedown(function () {
+            $(this).toggleClass("bg-success");
+        });
+
+        $(".multiple").on({
+            mouseenter: function () { $(this).toggleClass("bg-success") },
+            mouseleave: function () { $(this).toggleClass("bg-success") },
+            click: function () { $(this).toggleClass("bg-success") },
+        });
+    </script>
+
+</body>
+
+</html>
