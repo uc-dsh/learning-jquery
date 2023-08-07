@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/js/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="stop">Stop Animation</button>
+    <p id="demo" style="margin-left: 100px;">Chaining</p>
+    <script>
+        $("#stop").click(function(){
+            $("#demo").stop(true, true);
+        })
+
+        $("#demo").css("background", "#FFCCCC")
+            .slideUp(300)
+            .delay(200)
+            .slideDown(300)
+            .delay(200)
+            .fadeOut(300)
+            .delay(200)
+            .fadeIn(300)
+            .delay(200)
+            .hide(300)
+            .delay(200)
+            .show(300)
+            .delay(200)
+            .fadeTo(300, 0.5, () => {
+            })
+            .delay(200)
+            .animate({
+                marginLeft: "+=250px",
+                rotate: "45Deg"
+            })
+            .animate({
+                marginTop: "100px",
+                opacity: 1
+            })
+            .animate({
+                rotate: "+=90Deg"
+            })
+            .animate({
+                marginTop: "+=200px",
+                rotate: "+=45Deg",
+            })
+            .animate({
+                marginTop: "-=200px",
+                rotate: "+=180Deg",
+            }, 4000)
+            .animate({
+                marginTop: "+=200px",
+            })
+            .animate({
+                marginTop: "-=40px",
+            })
+            .animate({
+                marginTop: "+=40px",
+            });
+
+           
+            
+    </script>
+</body>
+
+</html>
