@@ -6,11 +6,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./assets/js/jquery.js"></script>
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h4 {
+            margin-bottom: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            min-width: 200px;
+            max-width: 100vw;
+            border: 4px solid #00000018;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .bg-success{
+            background: rgba(0, 128, 0, 0.353);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="box" id="id_selector">
+            <p>ID Selector</p>
+        </div>
 
-    
+
+        <div class="box class_selector">
+            <p>Class Selector</p>
+        </div>
+
+        <div class="box class_selector">
+            <p>Class Selector</p>
+        </div>
+
+        <div class="box first_selector">
+            <p>First Selector</p>
+        </div>
+
+        <div class="box last_selector">
+            <p>Last Selector</p>
+        </div>
+
+        <div class="box">
+            <ul>
+                <li>First Child (This)</li>
+                <li>Second Child</li>
+                <li>Third Child</li>
+            </ul>
+            <br />
+            <ul>
+                <li class="first_child">First Child (All)</li>
+                <li>Second Child</li>
+                <li>Third Child</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <a href="#">Href Selector</a>
+        </div>
+
+        <div data-attr="hi" class="box" >
+            <p>Attr Selector</p>
+        </div>
+
+        <div class="box" >
+            <button>Type Selector</button>
+        </div>
+
+        <div class="box">
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td>Odd</td>
+                        <td>Odd</td>
+                        <td>Odd</td>
+                    </tr>
+                    <tr>
+                        <td>Even</td>
+                        <td>Even</td>
+                        <td>Even</td>
+                    </tr>
+                    <tr>
+                        <td>Odd</td>
+                        <td>Odd</td>
+                        <td>Odd</td>
+                    </tr>
+                    <tr>
+                        <td>Even</td>
+                        <td>Even</td>
+                        <td>Even</td>
+                    </tr>
+                    <tr>
+                        <td>Odd</td>
+                        <td>Odd</td>
+                        <td>Odd</td>
+                    </tr>
+                    <tr>
+                        <td>Even</td>
+                        <td>Even</td>
+                        <td>Even</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <script>
+
+       /* $("*").click(function(e){
+            //e.stopPropagation();
+            $(this).toggleClass("bg-success");
+        })*/
+
+        $("#id_selector").click(function () {
+            $(this).hide(300);
+        });
+
+        $(".class_selector").click(function () {
+            $(".class_selector").hide(300);
+        });
+
+        $(".first_selector:first").click(function () {
+            $(this).hide(300);
+        });
+
+        $(".last_selector:last").click(function(){
+            $(this).hide(300);
+        });
+
+        $("ul li:first").click(function (){
+            $(this).hide(300);
+        });
+        $("ul li.first_child").click(function (){
+            $("ul li:first-child").hide(300);
+        });
+
+        $("[href='#']").click(function(){
+            $(this).hide(300);
+        });
+
+        $("[data-attr='hi']").click(function(){
+            $(this).hide(300)
+        });
+        $("*:button").click(function(){
+            $(this).hide(300)
+        });
+
+        $("tr:odd").click(function(){
+            $("tr:odd").hide(300);
+        });
+
+        $("tr:even").click(function(){
+            $("tr:even").hide(300);
+        });
+        
+
+    </script>
 </body>
 
 </html>
