@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/js/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Render Requested Data Here</h1>
+    <div id="render">
+
+    </div>
+    <button class="load">Load</button>
+
+    <script>
+        $(".load").click(function () {
+            $("#render").load("demo-text.json");
+        });
+
+        $.getJSON("demo-text.json", (data) => {
+            console.table(data);
+        });
+
+        $.getScript("./assets/js/test.js");
+
+        $.post("./demo-text.json", { name: "User1", email: 'user1@mail.com' }, (data) => {
+            console.log("Post Request",data);
+        });
+    </script>
+</body>
+
+</html>
