@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/js/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="anc">
+
+        <div class="anc2">
+            <ul>
+                <li>Lorem, ipsum.</li>
+                <li>Data Item
+                    <ul>
+                        <li>Lorem ipsum dolor sit.</li>
+                        <li>Lorem ipsum dolor sit.</li>
+                        <li>Data Item
+                            <ul>
+                                <li>Lorem ipsum dolor sit.</li>
+                                <li>Lorem ipsum dolor sit.</li>
+                                <li>
+                                    Data Item
+                                    <ul>
+                                        <li class="selector">Lorem ipsum dolor sit.</li>
+                                        <li>Lorem ipsum dolor sit.</li>
+                                        <li>Lorem ipsum dolor sit.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum.</li>
+            </ul>
+            <ul>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum.</li>
+                <li>Lorem, ipsum.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function log(...data) {
+            console.log(data);
+        }
+        // Traversing UP
+        log("Immediate", $(".selector").parent());
+        log("Object if immediate parent is div", $(".selector").parent("div"));
+        log("All parents till document root", $(".selector").parents());
+        log("All div parents till document root", $(".selector").parents("div"));
+        log("All parents till first div element", $(".selector").parentsUntil("div"));
+
+
+        // Traversing DOWN
+        log("Direct children's", $(".anc2").children());
+        log("Direct first Children", $(".anc2").children("ul:first"));
+        log("Find Traversing", $(".anc2").find(".selector"));
+        
+
+        // Traversing SideWays
+        log("Immediate Next", $("li:first").next());
+        log("Next All P", $("li:first").nextAll("p"));
+        log("Next Until", $("li:first").nextUntil());
+
+        log("Immediate Previous", $("li:last").prev());
+        log("Previous All P", $("li:last").prevAll("p"));
+        log("Previous Until", $("li:last").prevUntil());
+
+
+        // Traversing Filter
+        log("First", $("li").first());
+        log("Last", $("li").last());
+        log("EQ - Position / Rank in array", $("li").eq(0));
+        log("FILTER ", $("li").filter(":first-child"));
+        log("FILTER ", $("li").filter(".selector"));
+        log("Not ", $("li").not(":first-child"));
+        log("Not ", $("li").not(".selector"));
+        
+    </script>
+</body>
+
+</html>
