@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/js/jquery.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h4 {
+            margin-bottom: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            min-width: 200px;
+            max-width: 100vw;
+            border: 4px solid #00000018;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .bg-success {
+            background: rgba(0, 128, 0, 0.353);
+        }
+
+        .setDimension {
+            transition: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="getDom">
+        <p>Hi This is some text <b>for get dom</b></p>
+    </div>
+    <div class="setDom">
+        <div class="text"></div>
+        <div class="html"></div>
+    </div>
+    <button id="setDom">Set DOM</button>
+
+
+    <div class="add container">
+        <div class="box append">
+            <p>This is some random text.</p>
+        </div>
+        <div class="box prepend">
+            <p>This is some random text.</p>
+        </div>
+        <div class="box after">
+            <p>This is some random text.</p>
+        </div>
+        <div class="box before">
+            <p>This is some random text.</p>
+        </div>
+
+    </div>
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
+    <button id="after">after</button>
+    <button id="before">before</button>
+
+    <div class="empty">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, rerum!</p>
+    </div>
+    <div class="remove">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, rerum!</p>
+    </div>
+    <button id="empty">Empty</button>
+    <button id="remove">Remove</button>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="add_class">Add Class div</div>
+    <button id="add_class">Add Class</button>
+    <br />
+    <br />
+
+    <div class="remove_class bg-success">Remove Class div</div>
+    <button id="remove_class">Remove Class</button>
+    <br />
+    <br />
+
+    <div class="toggle_class">Toggle Class div</div>
+    <button id="toggle_class">Toggle Class</button>
+    <br />
+    <br />
+
+    <div class="css_class" style="background: #ffccff;opacity:0.7;">Get Css div</div>
+    <button id="css_class">Get Css</button>
+
+    <br />
+    <br />
+    <button id="get_Win_doc_dimension">Get Dimension</button>
+
+    <div class="setDimension" style="width: 200px;height:150px;border: 2px solid #ffcccc;">
+        <p>Width : 200px</p>
+        <p>Height : 150px</p>
+    </div>
+    <button id="setDimension">Set Dimension</button>
+    <script>
+        console.log("Text : " + $(".getDom").text(), $(".getDom").html());
+
+        $("#setDom").click(function () {
+            $(".setDom .html").html("<p>Hii this is html <b>Bold Text</b></p>");
+            $(".setDom .text").text("<p>Hii this is text <b>Bold Text</b></p>");
+        });
+
+        $("#append").click(function () {
+            $(".append").append("<p>This is append Content</p>");
+        });
+
+        $("#prepend").click(function () {
+            $(".prepend").prepend("<p>This is prepend Content</p>");
+        });
+
+        $("#after").click(function () {
+            $(".after").after("<div class='box' style='border-color: green;'>This is after Content</div>");
+        });
+
+        $("#before").click(function () {
+            $(".before").before("<div class='box' style='border-color: red;'>This is before Content</div>");
+        });
+
+        $("#empty").click(function () {
+            $(".empty").empty();
+        });
+        $("#remove").click(function () {
+            $(".remove").remove();
+        });
+
+        $("#add_class").click(function () {
+            $(".add_class").addClass("bg-success");
+        });
+        $("#remove_class").click(function () {
+            $(".remove_class").removeClass("bg-success");
+        });
+        $("#toggle_class").click(function () {
+            $(".toggle_class").toggleClass("bg-success");
+        });
+
+        $("#css_class").click(function () {
+            alert($(".css_class").css("background"));
+        });
+
+        $("#get_Win_doc_dimension").click(function () {
+            var txt = "";
+            txt += "Document width/height: " + $(document).width();
+            txt += "x" + $(document).height() + "\n";
+            txt += "Window width/height: " + $(window).width();
+            txt += "x" + $(window).height();
+            alert(txt);
+        });
+
+        $("#setDimension").click(function () {
+            const height = Math.round(Math.random() * 200);
+            const width = Math.round(Math.random() * 300);
+            $(".setDimension").width(width).height(height).html(`<p>Width : ${width}px</p><p>Height : ${height}px</p>`);
+        });
+
+    </script>
+</body>
+
+</html>
